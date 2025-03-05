@@ -1,0 +1,108 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #0f0f0f, #1e1e1e);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Slider Container */
+.slider {
+    position: relative;
+    width: 80vw;
+    height: 60vh;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(255, 255, 255, 0.15);
+}
+
+/* Slide Images */
+.slider__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transform: scale(1.15) translateX(50px);
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+/* Active Slide */
+.slider__img:not([style*="display: none"]) {
+    opacity: 1;
+    transform: scale(1) translateX(0);
+}
+
+/* Navigation Arrows */
+.arrows {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+/* Modern Arrows */
+.arrow {
+    pointer-events: all;
+    background: rgba(255, 255, 255, 0.15);
+    border: none;
+    color: white;
+    font-size: 35px;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: 0.3s ease-in-out;
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+/* Hover Effects */
+.arrow:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.15);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
+}
+
+/* Adjust Arrow Position */
+#arrowprev {
+    position: absolute;
+    left: 10px;
+}
+
+#arrownext {
+    position: absolute;
+    right: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .slider {
+        width: 90vw;
+        height: 50vh;
+    }
+
+    .arrow {
+        font-size: 28px;
+        width: 40px;
+        height: 40px;
+        padding: 10px;
+    }
+}
